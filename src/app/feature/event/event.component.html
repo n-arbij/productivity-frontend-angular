@@ -111,3 +111,11 @@
       }
   </div>
 </div>
+
+<app-event-drawer
+  [open]="drawerOpen()"
+  [event]="drawerEvent()"
+  (closed)="closeDrawer()"
+  (saved)="onEventSaved($event)"
+  (deleted)="onEventDeleted($event)">
+</app-event-drawer>

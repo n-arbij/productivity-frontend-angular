@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { EventResponse, EventSummaryResponse } from '../../core/models/event.model';
 import { EventService } from '../../core/services/event.service';
+import { EventDrawerComponent } from './event-drawer/event-drawer.component';
 
 
 @Component({
   selector: 'app-event',
-  imports: [CommonModule],
+  imports: [CommonModule, EventDrawerComponent],
   templateUrl: './event.component.html',
   styleUrl: './event.component.css',
 })
