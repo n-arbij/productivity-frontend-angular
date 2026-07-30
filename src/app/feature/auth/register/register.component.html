@@ -1,1 +1,73 @@
-<p>register works!</p>
+<div class="register-container">
+    <div class="container-header">
+        <h1>Welcome Aboard!</h1>
+        <p class="redirect">
+            Already have an account?
+            <a routerLink="/">
+                Sign In
+            </a>
+        </p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="input-fields">
+            <div class="sect1">
+                <div class="form-group">
+                    <input
+                        class="el-input"
+                        type="text"
+                        formControlName="username"
+                        placeholder="Username"
+                        required>
+                </div>
+                <div class="form-group">
+                    <input
+                        class="el-input"
+                        type="email"
+                        formControlName="email"
+                        placeholder="Email Address"
+                        required>
+                </div>
+            </div>
+            <div class="sect2">
+                <div class="form-group">
+                    <input
+                        class="el-input"
+                        [type]="showPassword ? 'text' : 'password'"
+                        formControlName="password"
+                        placeholder="Password"
+                        required>
+                </div>
+        
+                <div class="form-group">
+                    <input
+                        class="el-input"
+                        [type]="showConfirmPassword ? 'text' : 'password'"
+                        formControlName="confirmPassword"
+                        placeholder="Confirm Password"
+                        required>
+                </div>
+            </div>
+                @if(registerForm.hasError('passwordMismatch')){
+                    <small>
+                        Passwords do not match.
+                    </small>
+                }
+        </div>
+
+        <div class="terms-submit">
+            <label class="neo-checkbox">
+                <input type="checkbox" formControlName="acceptTerms">
+                <span class="checkmark"></span>
+                <span>I agree to the <a href="#">Terms and Conditions</a>.</span>
+            </label>    
+            <button
+                class="btn"
+                type="submit"
+                [disabled]="loading || registerForm.invalid">
+    
+                {{ loading ? 'Creating Account...' : 'Create Account' }}
+            </button>
+        </div>
+    </form>
+</div>

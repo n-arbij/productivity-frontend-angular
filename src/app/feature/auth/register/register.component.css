@@ -1,0 +1,136 @@
+
+.container-header{
+    margin-bottom: 2em;
+}
+h1{
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #1A1A1A;
+    margin-bottom: 1em;
+}
+.redirect{
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 1em;
+}
+.redirect a{
+    font-weight: 800;
+    color: #000;
+}
+.input-fields{
+    display: flex;
+    align-items: start;
+    gap: 1em;
+}
+.sect1, .sect2{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 3.5em;
+}
+
+small{
+    font-family: 'Space Mono', sans-serif;
+    font-size: 13px;
+    padding-left: 15px;
+    font-weight: 500;
+    color: rgb(226, 62, 62);
+    text-align: center;
+}
+.terms-submit{
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 0;
+    margin-top: .5em;
+}
+
+.neo-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 400;
+    user-select: none;
+}
+
+.neo-checkbox input {
+    display: none;
+}
+
+.neo-checkbox a{
+    color: #000;
+    font-weight: 900;
+}
+
+.checkmark {
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    transition: transform .15s ease;
+    position: relative;
+}
+
+.neo-checkbox:hover .checkmark {
+    transform: translate(-1px, -1px);
+}
+
+.neo-checkbox:active .checkmark {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+.neo-checkbox input:checked + .checkmark {
+    background: #FFD500;
+}
+
+.neo-checkbox input:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid #000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.neo-checkbox input:focus-visible + .checkmark {
+    outline: 3px solid #4D90FE;
+    outline-offset: 3px;
+}
+
+.neo-checkbox input:disabled + .checkmark {
+    background: #ddd;
+    box-shadow: none;
+    opacity: .7;
+}
+
+.neo-checkbox input:disabled ~ span {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.neo-checkbox:has(input:disabled) {
+    cursor: not-allowed;
+}
+
+@media (max-width: 992px) {
+    .register-container{
+        padding: 8em 0 4em;
+    }
+    .input-fields{
+        flex-direction: column;
+        height: auto;
+    }
+}
