@@ -30,7 +30,12 @@ export const routes: Routes = [
         component: AuthenticatedLayout,
         canActivate: [authGuard],
         children: [
-
+            {
+                path: 'dashboard',
+                loadComponent: () => 
+                    import('./feature/dashboard/dashboard.component')
+                        .then(c => c.DashboardComponent)
+            }
         ]
     }
 ];
