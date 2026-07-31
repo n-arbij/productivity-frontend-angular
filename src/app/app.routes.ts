@@ -46,7 +46,13 @@ export const routes: Routes = [
                 loadComponent: () => 
                     import('./feature/habit/habit-list/habit-list.component')
                         .then(c => c.HabitListComponent)
+            },{
+                path: 'journals',
+                loadComponent: () => 
+                    import('./feature/journal/journal.component')
+                        .then(c => c.JournalComponent)
             }
+
         ]
     }
 ];
