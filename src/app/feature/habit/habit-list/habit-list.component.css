@@ -1,0 +1,119 @@
+.habit-list-page {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin: 0;
+}
+
+/* ============ WEEK HEADER ============ */
+.week-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 3px solid #000;
+  background: #FFD23F;
+  box-shadow: 3px 3px 0 0 #000;
+  margin-bottom: 12px;
+}
+
+.habit-name-col {
+  flex: 1;
+  min-width: 160px;
+}
+
+.week-days {
+  display: flex;
+  gap: 4px;
+}
+
+.week-day-label {
+  width: 40px;
+  text-align: center;
+}
+
+.day-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.week-day-label.today .day-name {
+  background: #000;
+  color: #FFD23F;
+  padding: 2px 6px;
+  
+}
+
+.streak-col {
+  width: 72px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+/* ============ ROWS ============ */
+.habit-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ============ STATE MESSAGES ============ */
+.state-msg {
+  padding: 24px;
+  text-align: center;
+  border: 2px dashed #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.state-msg.error {
+  border: 3px solid #000;
+  border-style: solid;
+  background: #FF6B6B;
+  color: #000;
+}
+.add-habit-btn {
+  padding: 8px 16px;
+  border: 3px solid #000;
+  background: #FFD23F;
+  box-shadow: 3px 3px 0 0 #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.add-habit-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 0 #000;
+}
+
+.add-habit-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.habit-info {
+  cursor: pointer;
+}
+
+.habit-info:hover .habit-name {
+  text-decoration: underline;
+}
