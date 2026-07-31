@@ -3,6 +3,7 @@ import { HabitCardComponent } from '../habit-card/habit-card.component';
 import { CommonModule } from '@angular/common';
 import { HabitService } from '../../../core/services/habit.service';
 import { HabitPayload, HabitResponse } from '../../../core/models/habit.model';
+import { HabitDrawerComponent } from '../habit-drawer/habit-drawer.component';
 
 interface WeekDay {
   date: string;
@@ -12,7 +13,7 @@ interface WeekDay {
 @Component({
   selector: 'app-habit-list-page',
   standalone: true,
-  imports: [CommonModule, HabitCardComponent],
+  imports: [CommonModule, HabitCardComponent, HabitDrawerComponent],
   templateUrl: './habit-list.component.html',
   styleUrl: './habit-list.component.css',
 })
@@ -117,7 +118,7 @@ export class HabitListComponent implements OnInit {
     });
   }
 
-  onLogged() {
-        this.fetchHabits();
-    }
+  onLogged(_habitId: string) {
+    this.fetchHabits();
+  }
 }

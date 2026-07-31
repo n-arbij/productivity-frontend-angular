@@ -5,7 +5,6 @@
     <button class="add-habit-btn" (click)="openCreate()">+ New habit</button>
   </div>
 
-  <!-- Week header -->
   <div class="week-header">
     <div class="habit-name-col"></div>
     <div class="week-days">
@@ -36,4 +35,11 @@
       }
     </div>
   }
+  <app-habit-drawer
+    [open]="drawerOpen()"
+    [habit]="drawerHabit()"
+    (closed)="closeDrawer()"
+    (saved)="onSaved($event)"
+    (deleted)="onDeleted($event)">
+  </app-habit-drawer>
 </div>
