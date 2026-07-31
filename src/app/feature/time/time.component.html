@@ -11,10 +11,19 @@
         (click)="setTab('pomodoro')">
         Pomodoro
       </button>
+      <button
+        [class.active]="activeTab() === 'stopwatch'"
+        (click)="setTab('stopwatch')">
+        Stopwatch
+      </button>
     </div>
   
     @if (activeTab() === 'pomodoro') {
       <app-pomodoro />
+    }
+  
+    @if (activeTab() === 'stopwatch') {
+      <app-stopwatch />
     }
   </div>
 

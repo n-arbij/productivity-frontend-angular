@@ -1,21 +1,15 @@
 .pomodoro {
-    width: 500px;
+  width: 70%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2em;
+  gap: 28px;
   padding: 12px 0 24px;
 }
 
-.timer-controls{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-}
+/* ============ SESSION TABS ============ */
 .session-tabs {
   display: flex;
-  flex-direction: column;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;

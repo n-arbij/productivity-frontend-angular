@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { CommonModule } from '@angular/common';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
 type TimeTab = 'pomodoro' | 'stopwatch';
 
 @Component({
   selector: 'app-time',
-  imports: [CommonModule, PomodoroComponent],
+  imports: [CommonModule, PomodoroComponent, StopwatchComponent],
   templateUrl: './time.component.html',
   styleUrl: './time.component.css',
 })
