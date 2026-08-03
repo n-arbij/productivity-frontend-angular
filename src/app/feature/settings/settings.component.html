@@ -1,0 +1,102 @@
+<div class="page">
+  <div class="error error--load" *ngIf="loadError">⚠ {{ loadError }}</div>
+
+  <div class="grid">
+    <form class="card" (ngSubmit)="saveProfile()">
+      <span class="stamp" *ngIf="profileSaved">✓ SAVED</span>
+
+      <div class="card-head">
+        <h2>Profile</h2>
+      </div>
+
+      <div class="error" *ngIf="profileError">⚠ {{ profileError }}</div>
+
+      <label for="username">Username</label>
+      <input id="username" type="text" [(ngModel)]="username" name="username" autocomplete="username" />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" [(ngModel)]="email" name="email" autocomplete="email" />
+
+      <button type="submit" class="btn btn--profile" [disabled]="profileSaving">
+        {{ profileSaving ? 'Saving…' : 'Save Profile' }}
+      </button>
+    </form>
+
+    <form class="card" (ngSubmit)="savePomodoro()">
+      <span class="stamp" *ngIf="pomodoroSaved">✓ SAVED</span>
+
+      <div class="card-head">
+        <h2>Pomodoro timer</h2>
+      </div>
+
+      <div class="error" *ngIf="pomodoroError">⚠ {{ pomodoroError }}</div>
+
+      <div class="stepper-grid">
+        <div class="stepper">
+          <label>Work</label>
+          <div class="stepper-control">
+            <button type="button" (click)="adjust('work', -1)" aria-label="Decrease work minutes">−</button>
+            <input type="number" [(ngModel)]="workMinutes" name="workMinutes" />
+            <button type="button" class="accent-work" (click)="adjust('work', 1)" aria-label="Increase work minutes">+</button>
+          </div>
+          <span class="unit">min</span>
+        </div>
+
+        <div class="stepper">
+          <label>Short break</label>
+          <div class="stepper-control">
+            <button type="button" (click)="adjust('short', -1)" aria-label="Decrease short break minutes">−</button>
+            <input type="number" [(ngModel)]="shortBreakMinutes" name="shortBreakMinutes" />
+            <button type="button" class="accent-short" (click)="adjust('short', 1)" aria-label="Increase short break minutes">+</button>
+          </div>
+          <span class="unit">min</span>
+        </div>
+
+        <div class="stepper">
+          <label>Long break</label>
+          <div class="stepper-control">
+            <button type="button" (click)="adjust('long', -1)" aria-label="Decrease long break minutes">−</button>
+            <input type="number" [(ngModel)]="longBreakMinutes" name="longBreakMinutes" />
+            <button type="button" class="accent-long" (click)="adjust('long', 1)" aria-label="Increase long break minutes">+</button>
+          </div>
+          <span class="unit">min</span>
+        </div>
+
+        <div class="stepper">
+          <label>Sessions</label>
+          <div class="stepper-control">
+            <button type="button" (click)="adjust('sessions', -1)" aria-label="Decrease sessions">−</button>
+            <input type="number" [(ngModel)]="sessionsBeforeLongBreak" name="sessionsBeforeLongBreak" />
+            <button type="button" class="accent-yellow" (click)="adjust('sessions', 1)" aria-label="Increase sessions">+</button>
+          </div>
+          <span class="unit">before long break</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn--pomodoro" [disabled]="pomodoroSaving">
+        {{ pomodoroSaving ? 'Saving…' : 'Save Pomodoro' }}
+      </button>
+    </form>
+  </div>
+
+  <div class="preview">
+    <div class="preview-head">
+      <span>One full cycle</span>
+      <span>{{ cycleTotalMinutes }} min</span>
+    </div>
+    <div class="preview-bar">
+      <div
+        *ngFor="let seg of cycleSegments"
+        class="preview-segment"
+        [ngClass]="'seg-' + seg.type"
+        [style.width]="segmentWidth(seg.minutes)"
+        [title]="seg.type + ' ' + seg.minutes + 'm'"
+      ></div>
+    </div>
+    <div class="legend">
+      <span class="legend-item"><span class="dot dot-work"></span>Work</span>
+      <span class="legend-item"><span class="dot dot-short"></span>Short break</span>
+      <span class="legend-item"><span class="dot dot-long"></span>Long break</span>
+    </div>
+  </div>
+</div>

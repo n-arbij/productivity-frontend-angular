@@ -1,0 +1,347 @@
+
+:host {
+  --ink: #111111;
+  --bg: #fffbea;
+  --white: #ffffff;
+  --profile: #74b9ff;
+  --work: #ff6b6b;
+  --short: #88d498;
+  --long: #74b9ff;
+  --yellow: #ffd23f;
+
+  display: block;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  background: var(--white);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 0 var(--ink);
+  padding: 20px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--ink);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 3px 3px 0 0 var(--ink);
+}
+
+.icon-box--profile {
+  background: var(--profile);
+}
+
+.icon-box--pomodoro {
+  background: var(--yellow);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.35rem;
+}
+
+input[type='text'],
+input[type='email'] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  border: 2px solid var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--white);
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='number']:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: inset 2px 2px 0 0 var(--ink);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--work);
+  color: var(--white);
+  border: 2px solid var(--ink);
+  padding: 0.6rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.error--load {
+  margin: 0 0 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  color: var(--white);
+  font-family: inherit;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--ink);
+}
+
+.btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--profile {
+  background: var(--profile);
+  color: var(--ink);
+}
+
+.btn--pomodoro {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.stamp {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--yellow);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  padding: 0.3rem 0.6rem;
+  font-weight: 700;
+  font-size: 0.7rem;
+  transform: rotate(6deg);
+  z-index: 1;
+}
+
+.stepper-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  .stepper-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stepper {
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 0 var(--ink);
+  padding: 12px;
+}
+
+.stepper-control {
+  display: flex;
+  border: 2px solid var(--ink);
+  margin-top: 8px;
+}
+
+.stepper-control button {
+  width: 36px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--white);
+  font-family: inherit;
+}
+
+.stepper-control button.accent-work {
+  background: var(--work);
+  color: var(--ink);
+}
+
+.stepper-control button.accent-short {
+  background: var(--short);
+  color: var(--ink);
+}
+
+.stepper-control button.accent-long {
+  background: var(--long);
+  color: var(--ink);
+}
+
+.stepper-control button.accent-yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.stepper-control input[type='number'] {
+  width: 100%;
+  border: none;
+  border-left: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+}
+
+.stepper-control input[type='number']::-webkit-inner-spin-button,
+.stepper-control input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.unit {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #555555;
+  margin-top: 0.35rem;
+  text-transform: uppercase;
+}
+
+.preview {
+  background: var(--white);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 0 var(--ink);
+  padding: 18px;
+}
+
+.preview-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.preview-bar {
+  display: flex;
+  height: 28px;
+  border: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.preview-segment {
+  border-right: 2px solid var(--ink);
+}
+
+.preview-segment:last-child {
+  border-right: none;
+}
+
+.seg-work {
+  background: var(--work);
+}
+
+.seg-short {
+  background: var(--short);
+}
+
+.seg-long {
+  background: var(--long);
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--ink);
+  display: inline-block;
+}
+
+.dot-work {
+  background: var(--work);
+}
+
+.dot-short {
+  background: var(--short);
+}
+
+.dot-long {
+  background: var(--long);
+}
